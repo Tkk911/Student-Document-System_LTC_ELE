@@ -783,5 +783,34 @@
             }, 1000);
         });
     </script>
+
+    <script src="script.js"></script>
+<script>
+        // ตัวแปรเก็บสถานะการป้องกัน
+        let protectionEnabled = true;
+        
+        // ฟังก์ชันป้องกันการคลิกขวา
+        function preventRightClick(e) {
+            if (protectionEnabled) {
+                e.preventDefault();
+                alert('การคลิกขวาถูกปิดใช้งานบนหน้านี้');
+            }
+        }
+        
+        // เพิ่ม event listener สำหรับป้องกันการคลิกขวา
+        document.addEventListener('contextmenu', preventRightClick);
+        
+        // ฟังก์ชันเปิดการป้องกัน
+        document.getElementById('enableBtn').addEventListener('click', function() {
+            protectionEnabled = true;
+            alert('เปิดการป้องกันการคลิกขวาแล้ว');
+        });
+        
+        // ฟังก์ชันปิดการป้องกัน
+        document.getElementById('disableBtn').addEventListener('click', function() {
+            protectionEnabled = false;
+            alert('ปิดการป้องกันการคลิกขวาแล้ว');
+        });
+    </script>    
 </body>
 </html>
